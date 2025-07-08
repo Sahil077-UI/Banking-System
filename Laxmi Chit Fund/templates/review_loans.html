@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Loans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/review_loans_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/review_loans_script.js') }}"></script>
+</head>
+<body>
+    <div class="review-container">
+        <h1>📋 Loan Review Panel</h1>
+
+        <section class="loan-section">
+            <h2>Pending Loan Requests</h2>
+            {% if pending_loans %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Name</th>
+                        <th>Loan Request</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in pending_loans %}
+                    <tr>
+                        <td>{{ c.account_number }}</td>
+                        <td>{{ c.name }}</td>
+                        <td>₹{{ c.loan_request }}</td>
+                        <td>
+                            <form method="POST" action="/admin/approve_loan" onsubmit="return confirmApproval()">
+                                <input type="hidden" name="account_number" value="{{ c.account_number }}">
+                                <button type="submit" class="approve-btn">Approve</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="no-data">No pending loan requests.</p>
+            {% endif %}
+        </section>
+
+        <section class="loan-section">
+            <h2>Active Loans</h2>
+            {% if active_loans %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Name</th>
+                        <th>Loan Balance</th>
+                        <th>EMI</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in active_loans %}
+                    <tr class="{% if c.loan_due_date and c.loan_due_date < current_date %}overdue{% endif %}">
+                        <td>{{ c.account_number }}</td>
+                        <td>{{ c.name }}</td>
+                        <td>₹{{ c.loan_balance }}</td>
+                        <td>₹{{ c.loan_emi }}</td>
+                        <td>{{ c.loan_due_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="no-data">No active loans.</p>
+            {% endif %}
+        </section>
+
+        <div class="back-link">
+            <a href="/admin_dashboard">⬅ Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

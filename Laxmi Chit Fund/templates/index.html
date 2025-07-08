@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laxmi Chit Fund Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Laxmi Bank</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#faq">FAQs</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Login <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="/register">Open Account</a>
+                        <a href="/client_login">Client Login</a>
+                        <a href="/admin_login">Admin Login</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Welcome to Laxmi Chit Fund Bank</h1>
+                <p>
+                    <span id="typed-text-container">
+                        <span id="typed-text"></span>
+                    </span>
+                </p>
+
+                <p>Trusted, Secure, and Convenient Financial Services</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-lock"></i>
+                        <h3>Secure Transactions</h3>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Fast Processing</h3>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Trusted by Thousands</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about fade-in-section section" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We provide chit fund-based banking solutions tailored to your financial goals. Our mission is to empower
+                you
+                financially through transparent and secure services. With years of experience in managing community
+                finances, we
+                bring innovation and trust to every account.</p>
+            <p>Our bank operates under stringent guidelines and is built on the pillars of trust, customer service, and
+                reliability.
+                We believe in empowering individuals through financial literacy and inclusive banking policies that
+                serve everyone
+                from rural households to urban enterprises.</p>
+            <p>At Laxmi Chit Fund Bank, every customer is family. Your success is our mission.</p>
+        </div>
+    </section>
+
+    <section class="services fade-in-section section" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Savings</h3>
+                    <p>Grow your money with high-interest savings accounts. Your financial future begins here.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Loans</h3>
+                    <p>Easy and fast loan approvals for your every need. From personal to business loans, we’ve got you
+                        covered.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Digital Banking</h3>
+                    <p>Manage your account anytime, anywhere securely. Enjoy the convenience of mobile and online
+                        banking.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3>Group Chits</h3>
+                    <p>Join community chit schemes and save systematically with guaranteed returns.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-university"></i>
+                    <h3>Fixed Deposits</h3>
+                    <p>Secure your savings with high-interest FD options tailored for different terms and needs.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Wallet Services</h3>
+                    <p>Use our integrated wallet for easy payments and transfers with robust security.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Credit/Debit Cards</h3>
+                    <p>Apply for international debit/credit cards with attractive rewards and zero annual fee.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Recurring Deposits</h3>
+                    <p>Save systematically every month and get guaranteed returns on maturity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq fade-in-section section faq-section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+
+            <div class="faq-item">
+                <button class="faq-question">How can I open a new account?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>You can open an account online by clicking “Open Account” in the login menu or visiting our
+                            branch.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is my investment secure with Laxmi Bank?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Yes! Your money is protected by multiple layers of security and regulatory compliance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I apply for a loan?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>You can apply through the client dashboard after logging into your account. Approval is fast and
+                        transparent.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="testimonials fade-in-section section carousel-section" id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <p>"Fast and easy loans! Highly recommend Laxmi Bank."</p>
+                    <h4>— Rahul Sharma</h4>
+                </div>
+                <div class="carousel-slide">
+                    <p>"Great digital services and excellent support team."</p>
+                    <h4>— Neha Verma</h4>
+                </div>
+                <div class="carousel-slide">
+                    <p>"I’ve been saving here for 3 years. Totally satisfied!"</p>
+                    <h4>— Arjun Mehta</h4>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots"></div>
+    </section>
+
+    <section class="stats-section" id="stats">
+        <h2>Our Achievements</h2>
+        <div class="stats-container">
+            <div class="stat">
+                <h3><span class="counter" data-target="500000000">0</span>+</h3>
+                <p>₹ Loans Disbursed</p>
+            </div>
+            <div class="stat">
+                <h3><span class="counter" data-target="10000">0</span>+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat">
+                <h3><span class="counter" data-target="15">0</span>+</h3>
+                <p>Years of Service</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact fade-in-section  section" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Available 24/7 — Call, Email or Visit your nearest branch. We're always happy to help!</p>
+            <form action="/contact" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="text" name="subject" placeholder="Subject" required />
+                <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Laxmi Chit Fund Bank. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

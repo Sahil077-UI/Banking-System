@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repayment History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/repayments_history_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/repayments_history_script.js') }}"></script>
+</head>
+<body>
+    <div class="repayment-container">
+        <h1>Repayment History</h1>
+        <h2>{{ client.name }} ({{ client.account_number }})</h2>
+
+        {% if client.repayment_history %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for amount, date in client.repayment_history %}
+                    <tr>
+                        <td>₹{{ amount }}</td>
+                        <td>{{ date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-history">No repayments made yet.</p>
+        {% endif %}
+
+        <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+</body>
+</html>

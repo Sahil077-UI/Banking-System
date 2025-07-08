@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/verify_client_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/verify_client_script.js') }}"></script>
+</head>
+<body>
+    <div class="verify-container">
+        <h1>Client Details</h1>
+        <div class="client-card">
+            <div class="info-row"><strong>Account Number:</strong> <span>{{ client.account_number }}</span></div>
+            <div class="info-row"><strong>Name:</strong> <span>{{ client.name }}</span></div>
+            <div class="info-row"><strong>Username:</strong> <span>{{ client.username }}</span></div>
+            <div class="info-row"><strong>Phone:</strong> <span>{{ client.ph_no }}</span></div>
+            <div class="info-row"><strong>Address:</strong> <span>{{ client.address }}</span></div>
+            <div class="info-row"><strong>Balance:</strong> <span>₹{{ client.open_bal }}</span></div>
+            <div class="info-row"><strong>Loan Balance:</strong> <span>₹{{ client.loan_balance }}</span></div>
+            <div class="info-row"><strong>Loan EMI:</strong> <span>₹{{ client.loan_emi }}</span></div>
+            <div class="info-row"><strong>Loan Approved:</strong>
+                <span class="{{ 'yes' if client.loan_approved else 'no' }}">{{ 'Yes' if client.loan_approved else 'No' }}</span>
+            </div>
+            <div class="info-row"><strong>Loan Request:</strong>
+                <span>{{ '₹' + client.loan_request if client.loan_request else 'None' }}</span>
+            </div>
+        </div>
+        <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f9fc;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    color: #333;
+}
+
+.notifications-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.notification-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.notification-item {
+    background: #ecf3f9;
+    border-left: 4px solid #2980b9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: background 0.3s;
+}
+
+.notification-item:hover {
+    background: #d6eaf8;
+}
+
+.notification-item .date {
+    font-style: italic;
+    color: #555;
+}
+
+.no-notification {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.back-link a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

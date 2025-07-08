@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.dashboard-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.balance {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.card-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.action-card {
+    flex: 1 1 250px;
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-card input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.action-card button {
+    padding: 10px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.action-card button:hover {
+    background-color: #21618c;
+}
+
+.action-card.danger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-card.danger button {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.action-card.danger button:hover {
+    background-color: #c0392b;
+}
+
+.change-pin-section {
+    margin-top: 20px;
+}
+
+.pin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.pin-wrapper {
+    position: relative;
+}
+
+.pin-wrapper input {
+    width: 100%;
+    padding: 10px 48px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+    user-select: none;
+}
+
+.pin-form button {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pin-form button:hover {
+    background-color: #16a085;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+.links {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}

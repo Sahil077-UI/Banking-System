@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/admin_dashboard_script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="admin-dashboard-container">
+        <h1>Welcome, Admin</h1>
+
+        <section class="actions">
+
+            <form method="POST" action="/admin/deduct_emis">
+                <h3>Deduct Monthly EMIs</h3>
+                <button type="submit">Deduct EMIs</button>
+            </form>
+
+            <form method="POST" action="/admin/apply_interest">
+                <h3>Apply Interest to All Accounts</h3>
+                <button type="submit">Apply Interest</button>
+            </form>
+
+            <div class="form-group">
+                <h3>Reset Loan by Account</h3>
+                <form method="POST" action="/admin/reset_loan">
+                    <input type="text" name="account_number" placeholder="Enter Account Number" required>
+                    <button type="submit" onclick="return confirm('Are you sure you want to mark this loan as paid?')">Reset Loan</button>
+                </form>
+            </div>
+
+            <div class="form-group">
+                <h3>Apply Interest to Specific Account</h3>
+                <form method="POST" action="/admin/apply_loan_interest_single">
+                    {% if request.args.get('message') %}
+                        {% set msg = request.args.get('message') %}
+                        <p class="{{ 'success' if '✅' in msg else 'error' }}">{{ msg }}</p>
+                    {% endif %}
+                    <input type="text" name="account_number" placeholder="Account Number" required>
+                    <input type="number" step="0.01" name="rate" placeholder="Annual Interest Rate (%)" required>
+                    <button type="submit">Apply Interest</button>
+                </form>
+            </div>
+
+            <div class="form-group">
+                <h3>Verify Client</h3>
+                <form method="POST" action="/admin/verify_client">
+                    <input type="text" name="account_number" placeholder="Enter Account Number" required>
+                    <button type="submit">Verify</button>
+                </form>
+            </div>
+
+        </section>
+
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search by name or username" onkeyup="filterClients()">
+        </div>
+
+        <table id="clients-table">
+            <thead>
+                <tr>
+                    <th>Account No</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Balance</th>
+                    <th>Loan Balance</th>
+                    <th>Loan Request</th>
+                    <th>Actions</th>
+                    <th>EMI</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                <tr class="{% if client.loan_due_date and client.loan_due_date < current_date %}overdue{% endif %}">
+                    <td>{{ client.account_number }}</td>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.username }}</td>
+                    <td>₹{{ client.open_bal }}</td>
+                    <td>₹{{ client.loan_balance }}</td>
+                    <td>{{ client.loan_request }}</td>
+                    <td>
+                        <div class="action-group">
+                            {% if client.loan_request and not client.loan_approved %}
+                                <form method="POST" action="/admin/approve_loan">
+                                    <input type="hidden" name="account_number" value="{{ client.account_number }}">
+                                    <button type="submit">Approve</button>
+                                </form>
+                            {% endif %}
+
+                            <form method="POST" action="/admin/delete_client">
+                                <input type="hidden" name="account_number" value="{{ client.account_number }}">
+                                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this client?');">Delete</button>
+                            </form>
+
+                            <a href="/admin/repayment_history/{{ client.account_number }}" class="action-button">Repayments</a>
+                        </div>
+
+                    </td>
+                    <td>
+                        {% if client.loan_approved and client.loan_balance > 0 and client.loan_emi %}
+                        ₹{{ client.loan_emi }}
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="admin-links">
+            <a href="/admin/review_loans">📋 Review Loans</a>
+            <a href="/admin/repayment_history_all">📄 All Repayments</a>
+            <a href="/admin_logout">🚪 Logout</a>
+        </div>
+    </div>
+</body>
+
+</html>

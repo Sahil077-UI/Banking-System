@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Loan Repayments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all_repayments_history_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/all_repayments_history_script.js') }}"></script>
+</head>
+<body>
+    <div class="repayments-container">
+        <h1>📄 All Clients – Loan Repayment History</h1>
+
+        {% if repayments %}
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search by name or account number">
+
+        <table id="repaymentTable">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Client Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in repayments %}
+                <tr>
+                    <td>{{ r.account_number }}</td>
+                    <td>{{ r.name }}</td>
+                    <td>₹{{ r.amount }}</td>
+                    <td>{{ r.date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-data">No repayments found.</p>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="/admin_dashboard">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Account Statement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/account_statement_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/account_statement_script.js') }}"></script>
+</head>
+
+<body>
+    <div class="statement-container">
+        <h2>Account Statement – <span class="name">{{ client.name }}</span> (<span class="acc-number">{{ client.account_number }}</span>)</h2>
+
+        {% if client.transactions %}
+        <input type="text" id="searchInput" placeholder="Search by type or date...">
+
+        <table id="statementTable">
+            <thead>
+                <tr>
+                    <th>Transaction Type</th>
+                    <th>Amount (₹)</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for txn_type, amount, date in client.transactions %}
+                <tr>
+                    <td>{{ txn_type }}</td>
+                    <td>{{ amount }}</td>
+                    <td>{{ date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-txn">No transactions found.</p>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="/client_dashboard">&larr; Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+
+</html>

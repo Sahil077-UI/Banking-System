@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/client_dashboard_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/client_dashboard_script.js') }}"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, {{ client.name }}</h1>
+        <p class="balance">💰 Balance: ₹{{ client.open_bal }}</p>
+
+        <div class="card-group">
+            <form action="/credit" method="POST" class="action-card">
+                <input type="number" name="amount" placeholder="Credit Amount" required>
+                <button type="submit">Credit</button>
+            </form>
+
+            <form action="/debit" method="POST" class="action-card">
+                <input type="number" name="amount" placeholder="Debit Amount" required>
+                <button type="submit">Debit</button>
+            </form>
+
+            <form action="/repay_loan" method="POST" class="action-card">
+                <input type="number" name="amount" placeholder="Loan Repayment Amount" required>
+                <button type="submit">Repay Loan</button>
+            </form>
+
+            <form method="POST" action="/apply_loan" class="action-card">
+                <input type="number" name="loan_amount" placeholder="Enter loan amount" required>
+                <button type="submit">Apply for Loan</button>
+            </form>
+
+            <form action="/delete_account" method="POST" class="action-card danger"
+                onsubmit="return confirm('Are you sure you want to delete your account?');">
+                <button type="submit">🗑️ Delete Account</button>
+            </form>
+        </div>
+
+        <div class="change-pin-section">
+            <h3>Change PIN</h3>
+            {% if message %}
+            {% set is_success = 'success' in message %}
+            <p class="{{ 'success' if is_success else 'error' }}">{{ message }}</p>
+            {% endif %}
+            <form method="POST" action="/change_pin" class="pin-form">
+                <div class="pin-wrapper">
+                    <input type="password" name="old_pin" id="old_pin" placeholder="Current PIN" required>
+                    <span class="eye-icon" onclick="togglePin('old_pin', this)">👁️</span>
+                </div>
+                <div class="pin-wrapper">
+                    <input type="password" name="new_pin" id="new_pin" placeholder="New PIN" required>
+                    <span class="eye-icon" onclick="togglePin('new_pin', this)">👁️</span>
+                </div>
+                <div class="pin-wrapper">
+                    <input type="password" name="confirm_pin" id="confirm_pin" placeholder="Confirm New PIN" required>
+                    <span class="eye-icon" onclick="togglePin('confirm_pin', this)">👁️</span>
+                </div>
+                <button type="submit">Change PIN</button>
+            </form>
+        </div>
+
+        <div class="links">
+            <a href="/account_statement">📄 View Statement</a>
+            <a href="/notifications">🔔 Notifications</a>
+            <a href="/logout">🚪 Logout</a>
+        </div>
+    </div>
+</body>
+</html>

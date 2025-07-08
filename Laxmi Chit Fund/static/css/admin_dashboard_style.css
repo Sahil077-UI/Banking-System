@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    color: #2c3e50;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-dashboard-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.actions form,
+.form-group {
+    background: #f9fbfc;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.actions h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #34495e;
+}
+
+.action-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-button,
+.delete-button,
+.approve-button {
+    width: 140px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.approve-button {
+    background-color: #27ae60;
+}
+
+.approve-button:hover {
+    background-color: #1e8449;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.action-button {
+    background-color: #e67e22;
+    text-decoration: none;
+}
+
+.action-button:hover {
+    background-color: #d35400;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.search-bar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+#clients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#clients-table th,
+#clients-table td {
+    border: 1px solid #ddd;
+    padding: 14px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#clients-table th {
+    background-color: #ecf0f1;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.overdue {
+    background-color: #fdecea;
+}
+
+.admin-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.admin-links a {
+    color: #3498db;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.admin-links a:hover {
+    background-color: #ecf0f1;
+    text-decoration: underline;
+}

@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #2c3e50;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.review-container {
+    max-width: 1000px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2980b9;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #ecf0f1;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.overdue {
+    background-color: #ffe0e0;
+}
+
+.approve-btn {
+    background-color: #27ae60;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.approve-btn:hover {
+    background-color: #219150;
+}
+
+.no-data {
+    font-style: italic;
+    color: #888;
+    padding: 10px 0;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: 500;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

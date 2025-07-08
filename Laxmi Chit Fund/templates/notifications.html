@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notification_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/notification_script.js') }}"></script>
+</head>
+
+<body>
+    <div class="notifications-container">
+        <h2>Notifications &ndash; <span class="client-name">{{ client.name }}</span></h2>
+
+        {% if client.transactions %}
+            <ul class="notification-list">
+            {% for txn_type, amount, date in client.transactions %}
+                {% if txn_type in ["Loan Approved", "EMI Deducted", "Loan Interest", "Balance Interest", "Loan Reset by Admin"] %}
+                    <li class="notification-item">
+                        <strong>{{ txn_type }}</strong> — ₹{{ amount }} on <span class="date">{{ date }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-notification">No notifications found.</p>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="/client_dashboard">&larr; Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+
+</html>
